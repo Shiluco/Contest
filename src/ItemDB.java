@@ -4,6 +4,7 @@ import java.util.TimerTask;
 public class ItemDB {
     // MapのSPACEを入れるリストの作成
     // static List<Integer>[] listMapSpaceCoordinate=new ArrayList<>();
+    public static int itemCount = 0;
     public static final int BANANA = 10;
     public static final int FISH = 11;
     public static final int SAKE = 12;
@@ -91,20 +92,45 @@ public class ItemDB {
                 break;
             case 10:
                 // BANANA
+                addItemCount(1);
+                System.out.println("itemCount:" + itemCount);
                 actionBANANA();
                 break;
             case 11:
                 // FISH
+                addItemCount(1);
+                System.out.println("itemCount:" + itemCount);
                 actionFISH();
                 break;
             case 12:
                 // SAKE
+                addItemCount(1);
+                System.out.println("itemCount:" + itemCount);
                 actionSAKE();
                 break;
 
             default:
                 System.out.println("Error: startAction");
                 break;
+        }
+    }
+
+    static void addItemCount(int gain) {
+        itemCount += gain;
+    }
+
+    static int getItemCount() {
+        return itemCount;
+    }
+
+    static boolean IsGetAllItems() {
+
+        int mustGetNoOfItem = 3;
+
+        if (getItemCount() >= mustGetNoOfItem) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

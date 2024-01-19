@@ -72,16 +72,21 @@ public class MoveChara {
     public boolean move(int dx, int dy) {
         if (isMovable(dx, dy)) {
             for (int i = 0; i < ItemDB.moveFISHGain; i++) {
-                posX += (dx*ItemDB.moveSakeGain);
-                posY += (dy*ItemDB.moveSakeGain);
+                posX += (dx * ItemDB.moveSakeGain);
+                posY += (dy * ItemDB.moveSakeGain);
             }
             System.out.println("chara[X,Y]:" + posX + "," + posY);
             // アイテム条件を後に追加する
             if (mapData.getMap(posX, posY) == MapData.TYPE_GOAL) {
-                System.out.println("GOAL");
-                StageDB.getMainStage().hide();
-                // StageDB.getMainSound().stop();
-                StageDB.getGameGoalStage().show();
+                if (ItemDB.IsGetAllItems()) {
+                    System.out.println("GOAL");
+                    StageDB.getMainStage().hide();
+                    // StageDB.getMainSound().stop();
+                    StageDB.getGameGoalStage().show();
+                } else {
+                    System.out.println("You must get all items!");
+
+                }
             }
             return true;
         } else {
