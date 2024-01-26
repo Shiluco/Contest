@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MapGame",
+            "request": "launch",
+            "mainClass": "MapGame",
+            "projectName": "Contest_2ae726e1"
+        },
+        {
+            "type": "java",
             "name": "GameSample",
             "request": "launch",
             "mainClass": "GameSample",
