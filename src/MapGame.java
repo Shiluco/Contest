@@ -6,11 +6,14 @@ public class MapGame extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
+    TimeController timeController = new TimeController();
     stage = primaryStage;
     stage.hide();
     StageDB.setMainClass(getClass());
     StageDB.getMainStage().show();
     // StageDB.getMainSound().play();
+    TimeController.timeOver();
+
   }
 
   public static void main(String[] args) {
